@@ -33,13 +33,21 @@ public class VetorTest {
 		assertEquals(expectedElement1, vetor.getElementos()[0]);
 		assertEquals(expectedElement2, vetor.getElementos()[1]);
 	}
-
+	
 	@Test
 	public void vetorJaEstaCheio() {
 		Vetor vetor = new Vetor(1);
-
+		
 		assertEquals(true, vetor.adiciona("elemento 01"));
 		assertEquals(false, vetor.adiciona("elemento 02"));
+	}
+
+	@Test
+	public void deveMostrarOTamanhoDeElementosOcupadosNoVetor() {
+		Vetor vetor = new Vetor(5);
+		vetor.adiciona("elemnto 01");
+		vetor.adiciona("elemnto 02");
+		assertEquals(2, vetor.tamanho());
 	}
 
 }
