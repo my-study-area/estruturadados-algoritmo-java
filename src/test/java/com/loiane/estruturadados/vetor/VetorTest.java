@@ -41,13 +41,31 @@ public class VetorTest {
 		assertEquals(true, vetor.adiciona("elemento 01"));
 		assertEquals(false, vetor.adiciona("elemento 02"));
 	}
-
+	
 	@Test
 	public void deveMostrarOTamanhoDeElementosOcupadosNoVetor() {
 		Vetor vetor = new Vetor(5);
 		vetor.adiciona("elemnto 01");
 		vetor.adiciona("elemnto 02");
 		assertEquals(2, vetor.tamanho());
+	}
+	
+	@Test
+	public void deveExibirOsElementosDoVetor() {
+		Vetor vetor = new Vetor(5);
+		vetor.adiciona("elemento 01");
+		vetor.adiciona("elemento 02");
+		String expected = "[elemento 01, elemento 02]";
+		assertEquals(expected, vetor.toString());
+	}
+
+	@Test
+	public void deveExibirOsElementosDeUmVetorDeTamanhoZero() {
+		Vetor vetor = new Vetor(0);
+//		vetor.adiciona("elemento 01");
+//		vetor.adiciona("elemento 02");
+		String expected = "[]";
+		assertEquals(expected, vetor.toString());
 	}
 
 }

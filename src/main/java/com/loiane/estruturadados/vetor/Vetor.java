@@ -1,5 +1,7 @@
 package com.loiane.estruturadados.vetor;
 
+import java.util.Arrays;
+
 public class Vetor {
 	private String[] elementos;
 	private int tamanho;
@@ -37,6 +39,25 @@ public class Vetor {
 
 	public int tamanho() {
 		return this.tamanho;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder s = new StringBuilder();
+		
+		s.append("[");
+		for (int i = 0; i < tamanho -1; i++) {
+			s.append(elementos[i]);
+			s.append(", ");
+		}
+
+		if (this.tamanho > 0) {
+			s.append(elementos[tamanho - 1]);
+		}
+
+		s.append("]");
+
+		return s.toString();
 	}
 
 }
