@@ -2,7 +2,9 @@ package com.loiane.estruturadados.vetor;
 
 import static org.junit.Assert.*;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 public class VetorTest {
 	@Test
@@ -58,7 +60,7 @@ public class VetorTest {
 		String expected = "[elemento 01, elemento 02]";
 		assertEquals(expected, vetor.toString());
 	}
-
+	
 	@Test
 	public void deveExibirOsElementosDeUmVetorDeTamanhoZero() {
 		Vetor vetor = new Vetor(0);
@@ -68,6 +70,32 @@ public class VetorTest {
 		assertEquals(expected, vetor.toString());
 	}
 
+	@Test
+	public void buscaElementoPelaPosicao() {
+		Vetor vetor = new Vetor(3);
+		vetor.adiciona("elemento 01");
+		vetor.adiciona("elemento 02");
+		vetor.adiciona("elemento 03");
+		String expected = "elemento 01";
+		assertEquals(expected, vetor.busca(0));
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void buscaElementoPelaPosicaoInexistente() {
+		Vetor vetor = new Vetor(3);
+		vetor.busca(1);
+	}
+
+	@Rule
+	public ExpectedException exception = ExpectedException.none();
+
+	@Test
+	public void buscaElementoPelaPosicaoInexistente2() {
+		Vetor vetor = new Vetor(3);
+		exception.expect(IllegalArgumentException.class);
+		exception.expectMessage("Posição inválida.");
+		vetor.busca(9);
+	}
 }
 
 
