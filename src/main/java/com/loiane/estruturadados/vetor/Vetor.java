@@ -1,7 +1,5 @@
 package com.loiane.estruturadados.vetor;
 
-import java.util.Arrays;
-
 public class Vetor {
 	private String[] elementos;
 	private int tamanho;
@@ -67,4 +65,12 @@ public class Vetor {
 		return elementos[posicao];
 	}
 
+	public int busca(String texto) {
+		for (int i = 0; i < elementos.length; i++) {
+			if (elementos[i] == texto) {
+				return 1;
+			}
+		}
+		return -1;
+	}
 }

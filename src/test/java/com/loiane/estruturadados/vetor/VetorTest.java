@@ -96,6 +96,26 @@ public class VetorTest {
 		exception.expectMessage("Posição inválida.");
 		vetor.busca(9);
 	}
+
+	@Test
+	public void buscaElementoPeloConteudoDoElementoExistente() {
+		Vetor vetor = new Vetor(3);
+		vetor.adiciona("elemento 01");
+		vetor.adiciona("elemento 02");
+		vetor.adiciona("elemento 03");
+		int expected = 1;
+		assertEquals(expected, vetor.busca("elemento 01"));
+	}
+
+	@Test
+	public void buscaElementoPeloConteudoDoElementoNaoExistente() {
+		Vetor vetor = new Vetor(3);
+		vetor.adiciona("elemento 01");
+		vetor.adiciona("elemento 02");
+		vetor.adiciona("elemento 03");
+		int expected = -1;
+		assertEquals(expected, vetor.busca("elemento 00"));
+	}
 }
 
 
