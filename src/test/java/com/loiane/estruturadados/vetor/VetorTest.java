@@ -116,6 +116,45 @@ public class VetorTest {
 		int expected = -1;
 		assertEquals(expected, vetor.busca("elemento 00"));
 	}
+	
+	@Test
+	public void adicionaNovoElementoNaPosicaoZero() {
+		Vetor vetor = new Vetor(10);
+		vetor.adiciona("B");
+		vetor.adiciona("C");
+		boolean expected = true;
+		assertEquals(expected, vetor.adiciona(0, "A"));
+		assertEquals("A", vetor.busca(0));
+		assertEquals(3, vetor.tamanho());
+	}
+
+	@Test
+	public void adicionaNovoElementoNaPosicaoTres() {
+		Vetor vetor = new Vetor(10);
+		vetor.adiciona("A");
+		vetor.adiciona("B");
+		vetor.adiciona("C");
+		vetor.adiciona("E");
+		boolean expected = true;
+		assertEquals(expected, vetor.adiciona(3, "D"));
+		assertEquals("D", vetor.busca(3));
+		assertEquals(5, vetor.tamanho());
+		assertEquals("E", vetor.busca(4));
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void adicionaNovoElementoNaPosicaoNaoExistente() {
+		Vetor vetor = new Vetor(3);
+		vetor.adiciona(4, "posição inexistente");
+	}
+
+	@Test
+	public void adicionaNovoElementoNaPosicaoNaoExistente2() {
+		Vetor vetor = new Vetor(10);
+		exception.expect(IllegalArgumentException.class);
+		exception.expectMessage("Posição inválida.");
+		vetor.adiciona(11, "posição inexistente");
+	}
 }
 
 
