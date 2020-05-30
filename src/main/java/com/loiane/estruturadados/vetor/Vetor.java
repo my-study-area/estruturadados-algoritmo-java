@@ -100,4 +100,16 @@ public class Vetor {
 			elementos = elementosNovos;
 		}
 	}
+
+	public void remove(int posicao) {
+		for (int i = posicao; i < this.tamanho; i++) {
+			this.elementos[i] = this.elementos[i+1];
+		}
+		this.tamanho--;
+	}
+
+	public void remove(String elemento) {
+		int posicao = this.busca(elemento);
+		this.remove(posicao);
+	}
 }

@@ -171,6 +171,37 @@ public class VetorTest {
 
 		assertEquals(6, vetor.getElementos().length);
 	}
+
+	@Test
+	public void removeElementoDoVetorPorPosicao() {
+	Vetor vetor = new Vetor(3);
+		vetor.adiciona(0, "A");
+		vetor.adiciona(1, "B");
+		vetor.adiciona(2, "C");
+		vetor.adiciona(3, "D");
+		
+		vetor.remove(0);
+		assertEquals(3, vetor.tamanho());
+		assertEquals(-1, vetor.busca("A"));
+		assertEquals(0, vetor.busca("B"));
+		assertEquals(1, vetor.busca("C"));
+		assertEquals(2, vetor.busca("D"));
+	}
+
+	@Test
+	public void removeElementoDoVetorPorTextoDoElemento() {
+		Vetor vetor = new Vetor(3);
+		vetor.adiciona(0, "A");
+		vetor.adiciona(1, "B");
+		vetor.adiciona(2, "C");
+		vetor.adiciona(3, "D");
+
+		vetor.remove("A");
+		assertEquals(3, vetor.tamanho());
+		assertEquals("B", vetor.getElementos()[0]);
+		assertEquals("C", vetor.getElementos()[1]);
+		assertEquals("D", vetor.getElementos()[2]);
+	}
 }
 
 
