@@ -37,14 +37,6 @@ public class VetorTest {
 	}
 	
 	@Test
-	public void vetorJaEstaCheio() {
-		Vetor vetor = new Vetor(1);
-		
-		assertEquals(true, vetor.adiciona("elemento 01"));
-		assertEquals(false, vetor.adiciona("elemento 02"));
-	}
-	
-	@Test
 	public void deveMostrarOTamanhoDeElementosOcupadosNoVetor() {
 		Vetor vetor = new Vetor(5);
 		vetor.adiciona("elemnto 01");
@@ -154,6 +146,28 @@ public class VetorTest {
 		exception.expect(IllegalArgumentException.class);
 		exception.expectMessage("Posição inválida.");
 		vetor.adiciona(11, "posição inexistente");
+	}
+	
+	@Test
+	public void adicionaMaisCapacidadeAoVetorAdicionandoElementoNoFinal() {
+		Vetor vetor = new Vetor(3);
+		vetor.adiciona("A");
+		vetor.adiciona("B");
+		vetor.adiciona("C");
+		vetor.adiciona("D");
+		
+		assertEquals(6, vetor.getElementos().length);
+	}
+	
+	@Test
+	public void adicionaMaisCapacidadeAoVetorAdicionandoElementoNaPosicaoZero() {
+		Vetor vetor = new Vetor(3);
+		vetor.adiciona(0, "A");
+		vetor.adiciona(1, "B");
+		vetor.adiciona(2, "C");
+		vetor.adiciona(0, "D");
+
+		assertEquals(6, vetor.getElementos().length);
 	}
 }
 
