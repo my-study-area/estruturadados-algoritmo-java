@@ -95,8 +95,10 @@ public class VetorTest {
 		vetor.adiciona("elemento 01");
 		vetor.adiciona("elemento 02");
 		vetor.adiciona("elemento 03");
-		int expected = 1;
+		int expected = 0;
 		assertEquals(expected, vetor.busca("elemento 01"));
+		assertEquals(1, vetor.busca("elemento 02"));
+		assertEquals(2, vetor.busca("elemento 03"));
 	}
 
 	@Test

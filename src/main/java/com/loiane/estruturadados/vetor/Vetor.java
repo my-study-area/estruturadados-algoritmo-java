@@ -69,7 +69,7 @@ public class Vetor {
 	public int busca(String texto) {
 		for (int i = 0; i < elementos.length; i++) {
 			if (elementos[i] == texto) {
-				return 1;
+				return i;
 			}
 		}
 		return -1;
