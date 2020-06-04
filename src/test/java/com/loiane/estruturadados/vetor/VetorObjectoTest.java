@@ -2,28 +2,33 @@ package com.loiane.estruturadados.vetor;
 
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import com.loiane.estruturadados.model.Contato;
 
 public class VetorObjectoTest {
 
+    private VetorObjeto vetor;
+
+    @Before
+    public void init() {
+        vetor = new VetorObjeto(2);
+    }
+
 	@Test
 	public void deveConfigurarOTamanhoDoVetor() {
-		VetorObjeto vetor = new VetorObjeto(2);
 		assertEquals(2, vetor.getElementos().length);
 	}
 
 	@Test
 	public void adicionaNovoElemento() {
-		VetorObjeto vetor = new VetorObjeto(2);
 		boolean expected = vetor.adiciona(1);
 		assertEquals(true, expected);
 	}
 
 	@Test
 	public void aumentaTamanhoDoVetorAoAdicionarNovoElemento() {
-		VetorObjeto vetor = new VetorObjeto(2);
 		vetor.adiciona(1);
 		int expected = 1;
 		assertEquals(expected, vetor.tamanho());
@@ -31,7 +36,6 @@ public class VetorObjectoTest {
 
 	@Test
 	public void adicionaDoisNovosElementos() {
-		VetorObjeto vetor = new VetorObjeto(2);
 		vetor.adiciona(1);
 		vetor.adiciona(2);
 		assertEquals(2, vetor.tamanho());
@@ -41,7 +45,6 @@ public class VetorObjectoTest {
 
 	@Test
 	public void adicionaNovoElementoNaPosicaoZero() {
-		VetorObjeto vetor = new VetorObjeto(3);
 		Contato c1 = new Contato("Nome1", "rua 1", "111-111");
 		Contato c2 = new Contato("Nome2", "rua 2", "222-222");
 		Contato c3 = new Contato("Nome3", "rua 3", "333-333");
@@ -55,7 +58,6 @@ public class VetorObjectoTest {
 
 	@Test
 	public void deveExibirOsElementosDoVetor() {
-		VetorObjeto vetor = new VetorObjeto(2);
 		vetor.adiciona(1);
 		vetor.adiciona(2);
 		String expected = "[1, 2]";
@@ -64,14 +66,12 @@ public class VetorObjectoTest {
 
 	@Test
 	public void deveExibirOsElementosDeUmVetorDeTamanhoZero() {
-		VetorObjeto vetor = new VetorObjeto(10);
 		String expected = "[]";
 		assertEquals(expected, vetor.toString());
 	}
 
 	@Test
 	public void buscaElementoPelaPosicao() {
-		VetorObjeto vetor = new VetorObjeto(3);
 		Contato c1 = new Contato("Nome1", "rua 1", "111-111");
 		Contato c2 = new Contato("Nome2", "rua 2", "222-222");
 		Contato c3 = new Contato("Nome3", "rua 3", "333-333");
@@ -83,7 +83,6 @@ public class VetorObjectoTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void buscaElementoPelaPosicaoMaiorQueTamanhoDoVetor() {
-		VetorObjeto vetor = new VetorObjeto(3);
 		Contato c1 = new Contato("Nome1", "rua 1", "111-111");
 		Contato c2 = new Contato("Nome2", "rua 2", "222-222");
 		Contato c3 = new Contato("Nome3", "rua 3", "333-333");
@@ -95,7 +94,6 @@ public class VetorObjectoTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void buscaElementoPelaPosicaoDeValorNegativo() {
-		VetorObjeto vetor = new VetorObjeto(3);
 		Contato c1 = new Contato("Nome1", "rua 1", "111-111");
 		Contato c2 = new Contato("Nome2", "rua 2", "222-222");
 		Contato c3 = new Contato("Nome3", "rua 3", "333-333");
@@ -107,7 +105,6 @@ public class VetorObjectoTest {
 
 	@Test
 	public void buscaElementoPeloValorExistente() {
-		VetorObjeto vetor = new VetorObjeto(3);
 		Contato c1 = new Contato("Nome1", "rua 1", "111-111");
 		Contato c2 = new Contato("Nome2", "rua 2", "222-222");
 		Contato c3 = new Contato("Nome3", "rua 3", "333-333");
@@ -121,7 +118,6 @@ public class VetorObjectoTest {
 
 	@Test
 	public void buscaElementoPeloValorNaoExistente() {
-		VetorObjeto vetor = new VetorObjeto(3);
 		Contato c1 = new Contato("Nome1", "rua 1", "111-111");
 		Contato c2 = new Contato("Nome2", "rua 2", "222-222");
 		vetor.adiciona(c1);
@@ -130,7 +126,6 @@ public class VetorObjectoTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void adicionaNovoElementoNaPosicaoMenorQueZero() {
-		VetorObjeto vetor = new VetorObjeto(3);
 		Contato c1 = new Contato("Nome1", "rua 1", "111-111");
 		Contato c2 = new Contato("Nome2", "rua 2", "222-222");
 		Contato c3 = new Contato("Nome3", "rua 3", "333-333");
@@ -141,7 +136,6 @@ public class VetorObjectoTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void adicionaNovoElementoNaPosicaoMaiorQueOTamanhoDoVetor() {
-		VetorObjeto vetor = new VetorObjeto(3);
 		Contato c1 = new Contato("Nome1", "rua 1", "111-111");
 		Contato c2 = new Contato("Nome2", "rua 2", "222-222");
 		Contato c3 = new Contato("Nome3", "rua 3", "333-333");
@@ -152,7 +146,6 @@ public class VetorObjectoTest {
 
 	@Test
 	public void aumentaOTmanhoDoVetorAoAdicionarNovoElementoNaPosicaoZero() {
-		VetorObjeto vetor = new VetorObjeto(3);
 		vetor.adiciona(2.0);
 		vetor.adiciona(3.0);
 		vetor.adiciona(3.0);
@@ -161,7 +154,6 @@ public class VetorObjectoTest {
 
 	@Test
 	public void aumentaOTmanhoDoVetorAoAdicionarNovoElementoNoFinal() {
-		VetorObjeto vetor = new VetorObjeto(3);
 		vetor.adiciona(1.0);
 		vetor.adiciona(2.0);
 		vetor.adiciona(3.0);
@@ -171,7 +163,6 @@ public class VetorObjectoTest {
 
 	@Test
 	public void removeElementoDoVetorPorPosicao() {
-		VetorObjeto vetor = new VetorObjeto(3);
 		vetor.adiciona(1.0);
 		vetor.adiciona(2.0);
 		vetor.adiciona(3.0);
@@ -183,7 +174,6 @@ public class VetorObjectoTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void removeElementoDoVetorPorPosicaoMaiorQueOTamanho() {
-		VetorObjeto vetor = new VetorObjeto(3);
 		vetor.adiciona(1.0);
 		vetor.adiciona(2.0);
 		vetor.adiciona(3.0);
@@ -193,7 +183,6 @@ public class VetorObjectoTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void removeElementoDoVetorPorPosicaoNegativa() {
-		VetorObjeto vetor = new VetorObjeto(3);
 		vetor.adiciona(1.0);
 		vetor.adiciona(2.0);
 		vetor.adiciona(3.0);
@@ -203,7 +192,6 @@ public class VetorObjectoTest {
 
 	@Test
 	public void removeElementoDoVetorPorElemento() {
-		VetorObjeto vetor = new VetorObjeto(3);
 		vetor.adiciona(1.0);
 		vetor.adiciona(2.0);
 		vetor.adiciona(3.0);
@@ -214,7 +202,6 @@ public class VetorObjectoTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void removeElementoInexistenteDoVetor() {
-		VetorObjeto vetor = new VetorObjeto(3);
 		vetor.adiciona(1.0);
 		vetor.adiciona(2.0);
 		vetor.adiciona(3.0);
