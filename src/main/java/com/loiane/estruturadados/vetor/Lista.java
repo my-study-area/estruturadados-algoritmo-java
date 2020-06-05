@@ -7,7 +7,7 @@ public class Lista<T> {
     public Lista(int capacidade) {
         elementos = (T[]) new Object[capacidade];
     }
-    
+
     public Lista() {
         this(10);
     }
@@ -50,14 +50,14 @@ public class Lista<T> {
         }
     }
 
-    public Object busca(int posicao) {
+    public T busca(int posicao) {
         if (posicao > tamanho || posicao < 0) {
             throw new IllegalArgumentException();
         }
-        return this.elementos[posicao];
+        return (T) this.elementos[posicao];
     }
 
-    public int busca(Object elemento) {
+    public int busca(T elemento) {
         for (int i = 0; i < tamanho; i++) {
             if (this.elementos[i].equals(elemento)) {
                 return i;
@@ -76,7 +76,7 @@ public class Lista<T> {
         this.tamanho --;
     }
 
-    public void remove(Object elemento) {
+    public void remove(T elemento) {
         int posicao = this.busca(elemento);
         this.remove(posicao);
     }
@@ -105,4 +105,16 @@ public class Lista<T> {
         return this.busca(elemento) > -1;
     }
 
+    public int ultimoIndice(T elemento) {
+        for (int i = tamanho -1 ; i >= 0; i--) {
+            if (elemento == this.elementos[i]) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public T obtem(int posicao) {
+        return this.busca(posicao);
+    }
 }
