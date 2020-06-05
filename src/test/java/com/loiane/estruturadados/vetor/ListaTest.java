@@ -177,7 +177,7 @@ public class ListaTest {
 
         lista.remove(0);
         assertEquals(2, lista.tamanho());
-        assertEquals(2.0, lista.busca(0));
+        assertEquals(new Double(2.0), lista.busca(0));
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -265,5 +265,25 @@ public class ListaTest {
     public void retornaMenosUmCasoAListaNaoPossuaOElemento() {
         Lista<Integer> lista = new Lista<Integer>(3);
         assertEquals(-1, lista.ultimoIndice(10));
+    }
+
+    @Test
+    public void obtemUmElementoPassandoOindiceComoParametro() {
+        Lista<Integer> lista = new Lista<Integer>(3);
+        Integer n1 = new Integer(1);
+        lista.adiciona(n1);
+        lista.adiciona(2);
+        lista.adiciona(3);
+        assertEquals((Integer) 1, lista.obtem(0));
+    }
+    
+    @Test(expected = IllegalArgumentException.class)
+    public void obtemUmElementoPassandoOindiceInexistenteComoParametro() {
+        Lista<Integer> lista = new Lista<Integer>(3);
+        Integer n1 = new Integer(1);
+        lista.adiciona(n1);
+        lista.adiciona(2);
+        lista.adiciona(3);
+        lista.obtem(-1);
     }
 }
