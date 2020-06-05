@@ -99,4 +99,10 @@ public class Lista<T> {
         return text.toString();
     }
 
+    public boolean contem(T elemento) {
+//        int posicao = this.busca(elemento);
+//        return posicao > -1;
+        return this.busca(elemento) > -1;
+    }
+
 }
