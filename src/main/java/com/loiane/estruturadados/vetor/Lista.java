@@ -99,4 +99,18 @@ public class Lista<T> {
         return text.toString();
     }
 
+    public boolean contem(T elemento) {
+//        int posicao = this.busca(elemento);
+//        return posicao > -1;
+        return this.busca(elemento) > -1;
+    }
+
+    public int ultimoIndice(T elemento) {
+        for (int i = tamanho -1 ; i >= 0; i--) {
+            if (elemento == this.elementos[i]) {
+                return i;
+            }
+        }
+        return -1;
+    }
 }

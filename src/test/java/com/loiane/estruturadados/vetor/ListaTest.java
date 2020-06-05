@@ -221,4 +221,49 @@ public class ListaTest {
         lista.remove(4.0);
         assertEquals(3, lista.tamanho());
     }
+
+    @Test
+    public void verificaSeContemElemento() {
+        Lista<Integer> lista = new Lista<Integer>(3);
+        lista.adiciona(1);
+        lista.adiciona(2);
+        lista.adiciona(3);
+
+        assertEquals(true, lista.contem(1));
+    }
+    
+    @Test
+    public void verificaSeNaoContemElemento() {
+        Lista<Integer> lista = new Lista<Integer>(3);
+        lista.adiciona(1);
+        lista.adiciona(2);
+        lista.adiciona(3);
+
+        assertEquals(false, lista.contem(4));
+    }
+    
+    @Test
+    public void retornaOUltimoIndiceDoElementoPesquisadoNaLista() {
+        Lista<Integer> lista = new Lista<Integer>(3);
+        lista.adiciona(1);
+        lista.adiciona(1);
+        lista.adiciona(2);
+
+        assertEquals(1, lista.ultimoIndice(1));
+    }
+
+    @Test
+    public void retornaOUltimoIndiceDoElementoPesquisadoNaListaComDoisElementosRepetidos() {
+        Lista<Integer> lista = new Lista<Integer>(3);
+        lista.adiciona(1);
+        lista.adiciona(1);
+
+        assertEquals(1, lista.ultimoIndice(1));
+    }
+    
+    @Test
+    public void retornaMenosUmCasoAListaNaoPossuaOElemento() {
+        Lista<Integer> lista = new Lista<Integer>(3);
+        assertEquals(-1, lista.ultimoIndice(10));
+    }
 }
