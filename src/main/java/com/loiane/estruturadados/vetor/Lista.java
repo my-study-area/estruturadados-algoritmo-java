@@ -76,7 +76,7 @@ public class Lista<T> {
         this.tamanho --;
     }
 
-    public void remove(Object elemento) {
+    public void remove(T elemento) {
         int posicao = this.busca(elemento);
         this.remove(posicao);
     }
