@@ -286,4 +286,15 @@ public class ListaTest {
         lista.adiciona(3);
         lista.obtem(-1);
     }
+    
+    @Test
+    public void removeTodosOsElementosDaLIsta() {
+        Lista<Integer> lista = new Lista<Integer>(3);
+        lista.adiciona(1);
+        lista.adiciona(2);
+        lista.adiciona(3);
+        assertEquals(3, lista.tamanho());
+        lista.limpar();
+        assertEquals(0, lista.tamanho());
+    }
 }

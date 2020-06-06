@@ -117,4 +117,19 @@ public class Lista<T> {
     public T obtem(int posicao) {
         return this.busca(posicao);
     }
+
+    public void limpar() {
+        //opção 01
+        //this.elementos = (T[]) new Object[this.elementos.length];
+        //this.tamanho = 0;
+
+        //opçao 02
+        //this.tamanho = 0;
+
+        //opção 03
+        for (int i = 0; i < elementos.length; i++) {
+            this.elementos[i] = null;
+        }
+        this.tamanho = 0;
+    }
 }
