@@ -67,6 +67,20 @@ public class EstruturaEstaticaTest {
         assertEquals(3, estruturaEstatica.getElementos()[2]);
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void validaPosicaoAoAdicionarElementoNaPosicaoMenorQueZero() {
+        EstruturaEstatica<Integer> estruturaEstatica = new EstruturaEstatica<Integer>(3);
+
+        estruturaEstatica.adiciona(-1, 2);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void validaPosicaoAoAdicionarElementoNaPosicaoMaiorQueOTamanho() {
+        EstruturaEstatica<Integer> estruturaEstatica = new EstruturaEstatica<Integer>(3);
+        
+        estruturaEstatica.adiciona(10, 2);
+    }
+
     @Test
     public void aumentaCapacidadeDaEstruturaAoAdicionarNovoElementoMaiorQueACapacidade() {
         EstruturaEstatica<Integer> estruturaEstatica = new EstruturaEstatica<Integer>(3);
