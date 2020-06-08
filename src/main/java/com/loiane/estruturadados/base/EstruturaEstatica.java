@@ -65,4 +65,19 @@ public class EstruturaEstatica<T> {
         }
         this.tamanho --;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder text = new StringBuilder();
+        text.append("[");
+        if (this.tamanho > 0) {
+            for (int i = 0; i < tamanho - 1; i++) { 
+                text.append(this.elementos[i]);
+                text.append(", ");
+            }
+            text.append(this.elementos[tamanho - 1]);
+        }
+        text.append("]");
+        return text.toString();
+    }
 }

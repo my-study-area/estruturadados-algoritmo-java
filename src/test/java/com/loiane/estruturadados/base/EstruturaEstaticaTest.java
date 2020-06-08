@@ -136,4 +136,19 @@ public class EstruturaEstaticaTest {
         estruturaEstatica.adiciona(3);
         estruturaEstatica.remove(4);
     }
+
+    @Test
+    public void deveExibirOselementosDaEstruturaEstaticaDeTamanhoZero() {
+        EstruturaEstatica<Integer> estruturaEstatica = new EstruturaEstatica<Integer>(3);
+        assertEquals("[]", estruturaEstatica.toString());
+    }
+
+    @Test
+    public void deveExibirOselementosDaEstruturaEstaticaDeTamanhoTres() {
+        EstruturaEstatica<Integer> estruturaEstatica = new EstruturaEstatica<Integer>(3);
+        estruturaEstatica.adiciona(1);
+        estruturaEstatica.adiciona(2);
+        estruturaEstatica.adiciona(3);
+        assertEquals("[1, 2, 3]", estruturaEstatica.toString());
+    }
 }
