@@ -66,4 +66,34 @@ public class EstruturaEstaticaTest {
         assertEquals(2, estruturaEstatica.getElementos()[1]);
         assertEquals(3, estruturaEstatica.getElementos()[2]);
     }
+
+    @Test
+    public void removeElementoPorPosicao() {
+        EstruturaEstatica<Integer> estruturaEstatica = new EstruturaEstatica<Integer>(3);
+        estruturaEstatica.adiciona(1);
+        estruturaEstatica.adiciona(2);
+        estruturaEstatica.adiciona(3);
+        assertEquals(3, estruturaEstatica.tamanho);
+        estruturaEstatica.remove(1);
+        assertEquals(3, estruturaEstatica.getElementos()[1]);
+        assertEquals(2, estruturaEstatica.tamanho());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void validaPosicaoAoRemeverElementoComPosicaoMenorQueZero() {
+        EstruturaEstatica<Integer> estruturaEstatica = new EstruturaEstatica<Integer>(3);
+        estruturaEstatica.adiciona(1);
+        estruturaEstatica.adiciona(2);
+        estruturaEstatica.adiciona(3);
+        estruturaEstatica.remove(-1);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void validaPosicaoAoRemeverElementoNaPosicaoMaiorQueOTamanho() {
+        EstruturaEstatica<Integer> estruturaEstatica = new EstruturaEstatica<Integer>(3);
+        estruturaEstatica.adiciona(1);
+        estruturaEstatica.adiciona(2);
+        estruturaEstatica.adiciona(3);
+        estruturaEstatica.remove(4);
+    }
 }
