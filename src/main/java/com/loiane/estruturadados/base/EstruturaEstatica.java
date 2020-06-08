@@ -66,6 +66,11 @@ public class EstruturaEstatica<T> {
         this.tamanho --;
     }
 
+
+    public boolean estaVazia() {
+        return this.tamanho < 1;
+    }
+
     @Override
     public String toString() {
         StringBuilder text = new StringBuilder();

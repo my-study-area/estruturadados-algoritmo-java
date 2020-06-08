@@ -151,4 +151,17 @@ public class EstruturaEstaticaTest {
         estruturaEstatica.adiciona(3);
         assertEquals("[1, 2, 3]", estruturaEstatica.toString());
     }
+
+    @Test
+    public void deveVerificarSeAEstruturaEstaticaEstaVazia() {
+        EstruturaEstatica<Integer> estruturaEstatica = new EstruturaEstatica<Integer>(3);
+        assertEquals(true, estruturaEstatica.estaVazia());
+    }
+
+    @Test
+    public void deveVerificarSeAEstruturaEstaticaNaoEstaVazia() {
+        EstruturaEstatica<Integer> estruturaEstatica = new EstruturaEstatica<Integer>(3);
+        estruturaEstatica.adiciona(1);
+        assertEquals(false, estruturaEstatica.estaVazia());
+    }
 }
