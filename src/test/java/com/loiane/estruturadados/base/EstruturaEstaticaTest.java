@@ -68,12 +68,38 @@ public class EstruturaEstaticaTest {
     }
 
     @Test
+    public void aumentaCapacidadeDaEstruturaAoAdicionarNovoElementoMaiorQueACapacidade() {
+        EstruturaEstatica<Integer> estruturaEstatica = new EstruturaEstatica<Integer>(3);
+        estruturaEstatica.adiciona(1);
+        estruturaEstatica.adiciona(2);
+        estruturaEstatica.adiciona(3);
+
+        assertEquals(3, estruturaEstatica.getElementos().length);
+        estruturaEstatica.adiciona(4);
+        assertEquals(6, estruturaEstatica.getElementos().length);
+        assertEquals(4, estruturaEstatica.tamanho());
+    }
+    
+    @Test
+    public void aumentaCapacidadeDaEstruturaAoAdicionarNovoElementoPorPosicaoMaiorQueACapacidade() {
+        EstruturaEstatica<Integer> estruturaEstatica = new EstruturaEstatica<Integer>(3);
+        estruturaEstatica.adiciona(0, 1);
+        estruturaEstatica.adiciona(1, 2);
+        estruturaEstatica.adiciona(2, 3);
+        
+        assertEquals(3, estruturaEstatica.getElementos().length);
+        estruturaEstatica.adiciona(3, 4);
+        assertEquals(6, estruturaEstatica.getElementos().length);
+        assertEquals(4, estruturaEstatica.tamanho());
+    }
+
+    @Test
     public void removeElementoPorPosicao() {
         EstruturaEstatica<Integer> estruturaEstatica = new EstruturaEstatica<Integer>(3);
         estruturaEstatica.adiciona(1);
         estruturaEstatica.adiciona(2);
         estruturaEstatica.adiciona(3);
-        assertEquals(3, estruturaEstatica.tamanho);
+        assertEquals(3, estruturaEstatica.tamanho());
         estruturaEstatica.remove(1);
         assertEquals(3, estruturaEstatica.getElementos()[1]);
         assertEquals(2, estruturaEstatica.tamanho());
