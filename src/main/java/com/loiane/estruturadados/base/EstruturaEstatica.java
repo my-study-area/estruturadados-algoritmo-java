@@ -2,7 +2,7 @@ package com.loiane.estruturadados.base;
 
 public class EstruturaEstatica<T> {
     protected T[] elementos;
-    private int tamanho;
+    protected int tamanho;
 
     public EstruturaEstatica() {
         this(10);
