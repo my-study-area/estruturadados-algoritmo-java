@@ -1,19 +1,19 @@
 package com.loiane.estruturadados.pilha;
 
-public class Pilha<T> {
+import com.loiane.estruturadados.base.EstruturaEstatica;
 
-    public T[] elementos;
+public class Pilha<T> extends EstruturaEstatica<T> {
 
     public Pilha(int capacidade) {
-        this.elementos = (T[]) new Object[capacidade];
+        super(capacidade);
     }
 
     public Pilha() {
-        this(10);
+        super(10);
     }
 
     public Object[] getElementos() {
-        return elementos;
+        return super.getElementos();
     }
     
 }
