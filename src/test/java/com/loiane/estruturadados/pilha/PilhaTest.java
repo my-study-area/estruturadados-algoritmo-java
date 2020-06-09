@@ -47,4 +47,19 @@ public class PilhaTest {
         pilha.empilha(1);
         assertEquals(false, pilha.estaVazia());
     }
+
+    @Test
+    public void deveRetornarOElementoDoTopo() {
+        Pilha<Integer> pilha = new Pilha<Integer>();
+        pilha.empilha(1);
+        pilha.empilha(2);
+        pilha.empilha(3);
+        assertEquals(new Integer(3), pilha.topo());
+    }
+
+    @Test
+    public void deveRetornarNullquandoAPilhaEstaVazia() {
+        Pilha<Integer> pilha = new Pilha<Integer>();
+        assertEquals(null, pilha.topo());
+    }
 }
