@@ -26,4 +26,12 @@ public class PilhaTest {
         Pilha<Integer> pilha = new Pilha<Integer>();
         assertEquals(capacidade, pilha.getElementos().length);
     }
+
+    @Test
+    public void empilhaUmElementoNoFinal() {
+        Pilha<Integer> pilha = new Pilha<Integer>();
+        pilha.empilha(1);
+        assertEquals(1, pilha.tamanho());
+        assertEquals(1, pilha.getElementos()[0]);
+    }
 }
