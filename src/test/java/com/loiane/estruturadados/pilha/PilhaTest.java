@@ -62,4 +62,18 @@ public class PilhaTest {
         Pilha<Integer> pilha = new Pilha<Integer>();
         assertEquals(null, pilha.topo());
     }
+
+    @Test
+    public void deveRemoverOElementoDoTopoQuandoDesempilhar() {
+        Pilha<Integer> pilha = new Pilha<Integer>();
+        pilha.empilha(1);
+        pilha.desempilha();
+        assertEquals(0, pilha.tamanho());
+    }
+
+    @Test
+    public void deveRetornarNullQuandoDesempilharUmaPilhaVazia() {
+        Pilha<Integer> pilha = new Pilha<Integer>();
+        assertEquals(null, pilha.desempilha());
+    }
 }
