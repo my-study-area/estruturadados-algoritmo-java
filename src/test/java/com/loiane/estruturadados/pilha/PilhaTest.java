@@ -34,4 +34,17 @@ public class PilhaTest {
         assertEquals(1, pilha.tamanho());
         assertEquals(1, pilha.getElementos()[0]);
     }
+
+    @Test
+    public void verificaSeAPilhaEstaVazia() {
+        Pilha<Integer> pilha = new Pilha<Integer>();
+        assertEquals(true, pilha.estaVazia());
+    }
+
+    @Test
+    public void verificaSeAPilhaNaoEstaVazia() {
+        Pilha<Integer> pilha = new Pilha<Integer>();
+        pilha.empilha(1);
+        assertEquals(false, pilha.estaVazia());
+    }
 }
