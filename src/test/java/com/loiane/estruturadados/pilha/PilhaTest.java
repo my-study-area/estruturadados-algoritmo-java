@@ -67,8 +67,9 @@ public class PilhaTest {
     public void deveRemoverOElementoDoTopoQuandoDesempilhar() {
         Pilha<Integer> pilha = new Pilha<Integer>();
         pilha.empilha(1);
-        pilha.desempilha();
+        int n = pilha.desempilha();
         assertEquals(0, pilha.tamanho());
+        assertEquals(1, n);
     }
 
     @Test
