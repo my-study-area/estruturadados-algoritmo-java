@@ -2,6 +2,8 @@ package com.loiane.estruturadados.pilha;
 
 public class ConversorDecimalBinario {
 
+    private ConversorDecimalBinario() {}
+
     public static String converter(int numero) {
         if (numero == 0) {
             return "0";
