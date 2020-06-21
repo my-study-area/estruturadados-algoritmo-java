@@ -3,6 +3,9 @@ package com.loiane.estruturadados.pilha;
 public class ConversorDecimalBinario {
 
     public static String converter(int numero) {
+        if (numero == 0) {
+            return "0";
+        }
         Pilha<Integer> binarioInvertido = new Pilha<Integer>();
         String numeroBinario = "";
         int resto;
@@ -16,6 +19,6 @@ public class ConversorDecimalBinario {
             numeroBinario += binarioInvertido.desempilha();
         }
 
-        return (numero == 0) ? "0": numeroBinario;
+        return numeroBinario;
     }
 }
