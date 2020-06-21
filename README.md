@@ -12,6 +12,21 @@
 
 Curso de Estrutura de Dados e Algoritmos da [Loiane Groner](https://www.youtube.com/channel/UCqQn92noBhY9VKQy4xCHPsg) aplicando os conhecimentos de testes unitários com ***JUnit***.
 
+## Tecnologias
+- Java
+- JUnit
+- Maven
+
+## Começando
+- clone o projeto:
+```sh
+git clone https://github.com/my-study-area/estruturadados-algoritmo-java.git
+```
+- entre no diretório:
+```sh
+cd estruturadados-algoritmo-java
+```
+
 ## Teste
 Verifique os passos abaixo para executar os testes no terminal utilizando maven ou eclipse
 ### Terminal
