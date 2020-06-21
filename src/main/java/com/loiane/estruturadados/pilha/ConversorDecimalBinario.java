@@ -7,7 +7,7 @@ public class ConversorDecimalBinario {
             return "0";
         }
         Pilha<Integer> binarioInvertido = new Pilha<Integer>();
-        String numeroBinario = "";
+        StringBuilder numeroBinario = new StringBuilder();
         int resto;
         while (numero > 0) {
             resto = numero % 2;
@@ -16,9 +16,9 @@ public class ConversorDecimalBinario {
         }
 
         while (!binarioInvertido.estaVazia()) {
-            numeroBinario += binarioInvertido.desempilha();
+            numeroBinario.append(binarioInvertido.desempilha());
         }
 
-        return numeroBinario;
+        return numeroBinario.toString();
     }
 }
